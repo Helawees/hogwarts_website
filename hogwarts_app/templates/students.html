@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block main %}
+{% load custom_tags %}
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">House</th>
+                    <th scope="col">Info</th>
+                    {% if user.is_authenticated and user|in_group:"Professors" %}
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr style="transform:rotate(0);">
+                    <th scope="row">{{ student.id }}</th>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.house.name }}</td>
+                    <td>
+                        <form action="{% url 'student_info' student.id %}" method="get">
+                            <button type="submit" class="btn btn-success reg_font">Info</button>
+                        </form>
+                    </td>
+                    {% if user.is_authenticated and user|in_group:"Professors" %}
+                        <td>
+                            <form action="{% url 'edit_student' student.id %}" method="get">
+                                <button type="submit" class="btn btn-primary reg_font">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="{% url 'delete_student_confirmation' student.id %}" method="get">
+                                <button type="submit" class="btn btn-danger reg_font">Delete</button>
+                            </form>
+                        </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

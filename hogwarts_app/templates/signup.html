@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div class="container" style="width: 80%">
+  <div class="row">
+
+    <div class="col p-3 w-50">
+      <img src="/static/hat.jpg" class="py-1 text-center container" alt="sorting hat">
+    </div>
+
+    <div class="col p-3 w-50">
+      <br>
+        <div class="card-title text-center p-1 header">Welcome to Hogwarts, my new Friend!</div>
+        <h5 class="p-1"></h5>
+        <form action="/signup" method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+              <input class="form-control mb-2" name="first_name" placeholder="Enter your First Name">
+              <input class="form-control mb-2" name="last_name" placeholder="Enter your Last Name">
+              <input class="form-control mb-2" name="username" placeholder="Enter your Username">
+              <input type="password" class="form-control mb-2" name="password" placeholder="Enter your Password">
+              <input type="password" class="form-control mb-2" name="password_repeat" placeholder="Repeat your Password">
+          </div>
+          <button type="submit" class="btn btn-success btn-lg btn-block">Sort!</button>
+        </form>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

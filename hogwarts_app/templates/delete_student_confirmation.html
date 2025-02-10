@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div class="container" style="width: 80%">
+  <div class="row">
+
+    <div class="col p-3 w-50">
+      <img src="/static/hat.jpg" class="py-1 text-center container" alt="sorting hat">
+    </div>
+
+    <div class="col p-3 w-50">
+      <br>
+        <div class="card-title text-center p-1 header">Delete Student</div>
+        <h5 class="p-1">Are you sure that you'd like to delete Student {{student.name}}?</h5>
+        <div class="row p-1" style="width: 100%">
+            <form action="{% url 'delete_student' student.id %}" method="post" class="col-auto my-1" style="width: 50%">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-success reg_font w-100">Yes</button>
+            </form>
+            <form action="{% url 'students' %}" method="post" class="col-auto my-1" style="width: 50%">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger reg_font w-100">No</button>
+            </form>
+        </div>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

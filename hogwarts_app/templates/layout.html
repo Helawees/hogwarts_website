@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset = "utf-8">
+        <meta name = "viewport" content = "with = device-width, initial-scale = 1, shrink-to-fit = no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        
+        <!-- stylesheet and fonts -->
+        <link type="text/css" href="/static/styles.css" rel="stylesheet">
+
+        <!-- tab style -->
+        {% load static %}
+        {% load custom_tags %}
+        <link rel="shortcut icon" href="{% static 'favicon.svg' %}">
+
+        <title>Hogwarts school website</title>
+    </head>
+
+    <body>
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between", style="margin: auto">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                Home
+                <img src="/static/emblem.ico" width="60" height="60" alt="">
+            </a>
+            <ul class="navbar-nav nav-fill w-100">
+                {% if user.is_authenticated %}
+                    <li class="nav-item mr-auto"><a href="{% url 'houses' %}" class="nav-link">Houses</a></li>
+                    <li class="nav-item mr-auto"><a href="{% url 'locations' %}" class="nav-link">Locations</a></li>
+                    <li class="nav-item mr-auto"><a href="{% url 'professors' %}" class="nav-link">Professors</a></li>
+                    <li class="nav-item mr-auto"><a href="{% url 'subjects' %}" class="nav-link">Subjects</a></li>
+                    <li class="nav-item mr-auto"><a href="{% url 'students' %}" class="nav-link">Students</a></li>
+                    {% if user|in_group:"Professors" %}
+                        <li class="nav-item mr-auto"><a href="{% url 'add_student' %}" class="nav-link">Enroll in Hogwarts</a></li>
+                    {% endif %}
+                    {% if user|in_group:"Students" %}
+                        <li class="nav-item mr-auto"><a href="{% url 'course_enrollment' %}" class="nav-link">Course Enrollment</a></li>
+                    {% endif %}
+                    <li class="nav-item mr-auto"><a href="{% url 'logout_website' %}" class="nav-link">Log out</a></li>
+                {% else %}
+                    <li class="nav-item mr-auto"><a href="{% url 'login_website' %}" class="nav-link">Log in</a></li>
+                    <li class="nav-item mr-auto"><a href="{% url 'signup_website' %}" class="nav-link">Sign Up</a></li>
+                {% endif %}
+            </ul>
+
+        </nav>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{ message.tags }} text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% block main %}{% endblock %}
+      </div>
+    </body>
+</html>

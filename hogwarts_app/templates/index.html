@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block main %}
+            <div style="height: 50vh;" class="row">
+                <div style="width: 50vw" class="col gryffindor">
+                    <a href="{% url 'house_info' house_id=1 %}" class="stretched-link">
+                        <div class="card text-white bg-paper mx-auto mt-2" style="max-width: 40rem;">
+                            <div class="card-header header" style="color: brown; font-size: 1.8rem">
+                                <img src="/static/gryffindor.png" width="60" height="60" alt=""">
+                                Gryffindor
+                            </div>
+                            <div class="card-body hb-gr">
+                              <p class="card-text">Founder: Godric Gryffindor</p>
+                              <p class="card-text">Traits: Courage, Bravery, Determination</p>
+                              <p class="card-text">Head: Minerva McGonagall</p>
+                              <p class="card-text">Common Room: Gryffindor Tower</p>
+                              <p class="card-text">Ghost: Nearly-Headless Nick</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div style="width: 50vw" class="col slytherin">
+                    <a href="{% url 'house_info' house_id=2 %}" class="stretched-link">
+                        <div class="card text-white bg-paper mx-auto mt-2" style="max-width: 40rem; margin: auto">
+                            <div class="card-header header" style="color: darkgreen; font-size: 1.8rem">
+                                <img src="/static/slytherin.png" width="60" height="60" alt=""">
+                                Slytherin
+                            </div>
+                            <div class="card-body hb-sl">
+                                <p class="card-text">Founder: Salazar Slytherin</p>
+                                <p class="card-text">Traits: Ambition, Resourcefulness, Cunning</p>
+                                <p class="card-text">Head: Severus Snape</p>
+                                <p class="card-text">Common Room: Slytherin Dungeon</p>
+                                <p class="card-text">Ghost: Bloody Baron</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div style="height: 50vh;" class="row">
+                <div style="width: 50vw" class="col hufflepuff">
+                    <a href="{% url 'house_info' house_id=4 %}" class="stretched-link">
+                        <div class="card text-white bg-paper mx-auto mt-2" style="max-width: 40rem; margin: auto">
+                            <div class="card-header header" style="color: rgb(149, 107, 3); font-size: 1.8rem">
+                                <img src="/static/hufflepuff.png" width="60" height="60" alt=""">
+                                Hufflepuff
+                            </div>
+                            <div class="card-body hb-hp">
+                                <p class="card-text">Founder: Helga Hufflepuff</p>
+                                <p class="card-text">Traits: Hard-working, Loyalty, Fairness, Patience</p>
+                                <p class="card-text">Head: Pomona Sprout</p>
+                                <p class="card-text">Common Room: Hufflepuff Basement</p>
+                                <p class="card-text">Ghost: Fat Friar</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div style="width: 50vw" class="col ravenclaw">
+                    <a href="{% url 'house_info' house_id=3 %}" class="stretched-link">
+                        <div class="card text-white bg-paper mx-auto mt-2" style="max-width: 40rem; margin: auto">
+                            <div class="card-header header" style="color: rgb(2, 94, 164); font-size: 1.8rem">
+                                <img src="/static/ravenclaw.png" width="60" height="60" alt=""">
+                                Ravenclaw
+                            </div>
+                            <div class="card-body hb-rv">
+                                <p class="card-text">Founder: Rowena Ravenclaw</p>
+                                <p class="card-text">Traits: Wit, Learning, Wisdom, Acceptance</p>
+                                <p class="card-text">Head: Filius Flitwick</p>
+                                <p class="card-text">Common Room: Ravenclaw Tower</p>
+                                <p class="card-text">Ghost: Grey Lady</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+{% endblock %}

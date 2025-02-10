@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Professor</th>
+                    <th scope="col">Classroom</th>
+                    <th scope="col">Students</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if students %}
+                    {% for student in students %}
+                        <tr style="transform:rotate(0);">
+                        {% if forloop.first %}
+                            <td>{{ subject.id }}</td>
+                            <td>{{ subject.name }}</td>
+                            <td>{{ professor.name}}</td>
+                            <td>{{ subject.location.name }}</td>
+                            <td>{{ student.student.name }}</td>
+                        {% else %}
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{ student.student.name }}</td>
+                        {% endif %}
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr style="transform:rotate(0);">
+                        <td>{{ subject.id }}</td>
+                        <td>{{ subject.name }}</td>
+                        <td>{{ professor.name}}</td>
+                        <td>{{ subject.location.name }}</td>
+                        <td>There are no enrolled students yet.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

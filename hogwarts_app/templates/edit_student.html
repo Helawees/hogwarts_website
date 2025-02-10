@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div class="container" style="width: 80%">
+  <div class="row">
+
+    <div class="col p-3 w-50">
+      <img src="/static/hat.jpg" class="py-1 text-center container" alt="sorting hat">
+    </div>
+
+    <div class="col p-3 w-50">
+      <br>
+        <div class="card-title text-center p-1 header">Edit Student Info</div>
+        <h5 class="p-1"></h5>
+        <form action="{% url 'edit_student' student.id %}" method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+              <input class="form-control" name="student_name" placeholder="{{ student.name }}">
+          </div>
+          {% for subject in subjects %}
+              <div class="checkbox-container">
+                  <div class="checkbox-item">
+                      <input type="checkbox" checked id="{{ subject.subject.id }}" name="checkbox" value="{{ subject.subject.id }}">
+                      <label for="{{ subject.subject.id }}">{{ subject.subject.name }}</label>
+                  </div>
+              </div>
+          {% endfor %}
+          <button type="submit" class="btn btn-success btn-lg btn-block">Edit</button>
+        </form>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

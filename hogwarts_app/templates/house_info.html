@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">House</th>
+                    <th scope="col">Common room</th>
+                    <th scope="col">Head of House</th>
+                    {% if user.is_authenticated %}
+                        <th scope="col">Password</th>
+                        <th scope="col">Students of House</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% if students %}
+                    {% for student in students %}
+                        <tr style="transform:rotate(0);">
+                        {% if forloop.first %}
+                            <td>{{ house.id }}</td>
+                            <td>{{ house.name }}</td>
+                            <td>{{ house.common_room.name}}</td>
+                            <td>{{ house.head_of_the_house.name }}</td>
+                            {% if user.is_authenticated %}
+                                <td>{{ house.password }}</td>
+                                <td>{{ student.name }}</td>
+                            {% endif %}
+                        {% else %}
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            {% if user.is_authenticated %}
+                                <td></td>
+                                <td>{{ student.name }}</td>
+                            {% endif %}
+                        {% endif %}
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr style="transform:rotate(0);">
+                        <td>{{ house.id }}</td>
+                        <td>{{ house.name }}</td>
+                        <td>{{ house.common_room.name}}</td>
+                        <td>{{ house.head_of_the_house.name }}</td>
+                        {% if user.is_authenticated %}
+                            <td>{{ house.password }}</td>
+                            <td>There are no enrolled students yet.</td>
+                        {% endif %}
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

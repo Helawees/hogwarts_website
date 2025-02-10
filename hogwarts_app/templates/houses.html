@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 8%">ID</th>
+                    <th scope="col" style="width: 23%">Name</th>
+                    <th scope="col" style="width: 23%">Password</th>
+                    <th scope="col" style="width: 23%">Common room</th>
+                    <th scope="col" style="width: 23%">Head of the house</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for house in houses %}
+                    <tr style="transform: rotate(0);">
+                        <th scope="row"><a href="{% url 'house_info' house_id=house.id %}" class="stretched-link">{{ house.id }}</a></th>
+                        <td>{{ house.name }}</td>
+                        <td>{{ house.password }}</td>
+                        <td>{{ house.common_room }}</td>
+                        <td>{{ house.head_of_the_house }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

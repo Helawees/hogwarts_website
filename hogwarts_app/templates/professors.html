@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <div>
+        <table class="table", style="width: 95%; margin: auto">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 25%">Name</th>
+                    <th scope="col" style="width: 25%">Subject</th>
+                    <th scope="col" style="width: 25%">Classroom</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for professor in professors %}
+                    <tr>
+                        <td>{{ professor.name }}</td>
+                        <td>{{ professor.subject.name }}</td>
+                        <td>{{ professor.subject.location }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

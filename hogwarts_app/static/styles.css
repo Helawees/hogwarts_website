@@ -1,0 +1,173 @@
+/*fonts*/
+@font-face {
+    font-family: 'Harry Potter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/HARRP___.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Comic Neue';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./fonts/ComicNeue-Bold.woff') format('woff');
+}
+
+/*body, layout page and navbar restyling*/
+
+body{
+    font-family: 'Comic Neue', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+nav, button{
+    font-family: 'Harry Potter', sans-serif !important;
+    font-size: 1.2rem;
+}
+
+th{
+    font-family: 'Harry Potter', sans-serif !important;
+    font-size: 1rem;
+}
+
+.reg_font{
+    font-family: 'Comic Neue', sans-serif !important;
+}
+
+.header{
+    font-family: 'Harry Potter', sans-serif !important;
+    font-size: 1.3rem;
+}
+
+a{
+    text-decoration: none !important;
+    color: black !important;
+}
+
+a.hover{
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.nav-link{
+    color: rgb(58, 57, 57) !important;
+}
+
+.nav-link:hover{
+    color: black !important;
+    text-shadow: rgb(151, 151, 151) 4px -2px 4px
+}
+
+.navbar-brand{
+    color: rgb(58, 57, 57) !important;
+}
+
+.navbar-brand:hover{
+    color: black !important;
+    text-shadow: rgb(151, 151, 151) 4px -2px 4px
+}
+
+/*index page styling*/
+.gryffindor{
+    background-image: url(gryffindor_bg.jpg);
+    background-size: cover;
+    border: 2px solid black;
+}
+
+.gryffindor:hover{
+    opacity: 0.94;
+}
+
+.slytherin{
+    background-image: url(slytherin_bg.jpg);
+    background-size: cover;
+    border: 2px solid black;
+}
+
+.slytherin:hover{
+    opacity: 0.94;
+}
+
+.ravenclaw{
+    background-image: url(ravenclaw_bg.jpg);
+    background-size: cover;
+    border: 2px solid black;
+}
+
+.ravenclaw:hover{
+    opacity: 0.94;
+}
+
+.hufflepuff{
+    background-image: url(hufflepuff_bg.jpg);
+    background-size: cover;
+    border: 2px solid black;
+}
+
+.hufflepuff:hover{
+    opacity: 0.94;
+}
+
+.bg-paper{
+    background-image: url(paper.jpg);
+    background-size: cover;
+}
+
+.hb-gr{
+    font-family: 'Comic Neue', sans-serif;
+    color: brown;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-indent: 4rem;
+}
+
+.hb-sl{
+    font-family: 'Comic Neue', sans-serif;
+    color: darkgreen;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-indent: 4rem;
+}
+
+.hb-hp{
+    font-family: 'Comic Neue', sans-serif;
+    color: rgb(149, 107, 3);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-indent: 4rem;
+}
+
+.hb-rv{
+    font-family: 'Comic Neue', sans-serif;
+    color: rgb(2, 94, 164);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-indent: 4rem;
+}
+
+.checkbox-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item label {
+    margin-left: 8px;
+}
+
+
+
+
