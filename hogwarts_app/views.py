@@ -1,7 +1,7 @@
 """View functions for hogwarts_app application"""
 from django.contrib.auth import (authenticate, login as user_login,
                                  logout as user_logout)
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.password_validation import validate_password
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -118,7 +118,8 @@ def signup_website(request):
                                             password=password,
                                             first_name=first_name,
                                             last_name=last_name)
-            user.groups.add('Students')
+            group = Group.objects.get(name="Students")
+            user.groups.add(group)
             houselist = ['Gryffindor', 'Slytherin', 'Hufflepuff', 'Ravenclaw']
             house = random.choice(houselist)
             house_instance = Houses.objects.filter(name=house).first()
